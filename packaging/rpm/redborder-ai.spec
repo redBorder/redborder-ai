@@ -2,20 +2,13 @@ Name: redborder-ai
 Version: %{__version}
 Release: %{__release}%{?dist}
 BuildArch: noarch
-Summary: Main package for redborder llamafile
+Summary: Main package for redborder AI
 
 License: AGPL 3.0
 URL: https://github.com/redBorder/redborder-ai
 Source0: %{name}-%{version}.tar.gz
 
-Requires: bash chrony dialog postgresql s3cmd dmidecode rsync nc dhclient
-Requires: telnet redborder-serf redborder-common redborder-chef-client
-Requires: redborder-cookbooks redborder-rubyrvm redborder-cli
-Requires: synthetic-producer darklist-updated tcpdump
-Requires: chef-workstation
-Requires: alternatives java-1.8.0-openjdk java-1.8.0-openjdk-devel
-Requires: network-scripts network-scripts-teamd
-Requires: redborder-cgroups rb-logstatter
+Requires: bash
 
 %description
 %{summary}

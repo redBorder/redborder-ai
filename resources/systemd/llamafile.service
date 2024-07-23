@@ -4,7 +4,7 @@ Requires=network.target
 After=network.target
 
 [Service]
-ExecStart=/usr/lib/redborder/bin/rb_bootstrap.sh
+ExecStart=/usr/lib/redborder/bin/llava-v1.5-7b-q4.llamafile --fast --nobrowser --port 50505
 Restart=always
 RemainAfterExit=yes
 User=root
