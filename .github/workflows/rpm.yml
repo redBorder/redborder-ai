@@ -11,6 +11,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
+      TAG: $(cat ./VERSION)
       ACTIONS_ALLOW_UNSECURE_COMMANDS: true
 
     steps:
