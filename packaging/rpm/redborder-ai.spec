@@ -32,6 +32,8 @@ install -D -m 0644 resources/systemd/llamafile.service %{buildroot}/usr/lib/syst
 firewall-cmd --zone=home --add-port=50505/tcp --permanent
 firewall-cmd --reload
 systemctl daemon-reload
+systemctl enable llamafile.service
+systemctl restart llamafile.service
 mkdir -p /var/log/redborder-ai
 [ -f /usr/lib/redborder/bin/rb_rubywrapper.sh ] && /usr/lib/redborder/bin/rb_rubywrapper.sh -c
 
