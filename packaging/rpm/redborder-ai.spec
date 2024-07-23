@@ -22,7 +22,7 @@ Requires: bash
 mkdir -p %{buildroot}/etc/redborder
 mkdir -p %{buildroot}/usr/lib/redborder/bin
 cp resources/bin/* %{buildroot}/usr/lib/redborder/bin
-cp resources/model/* %{buildroot}/usr/lib/redborder/bin
+cp llava* %{buildroot}/usr/lib/redborder/bin
 chmod 0755 %{buildroot}/usr/lib/redborder/bin/*
 install -D -m 0644 resources/systemd/llamafile.service %{buildroot}/usr/lib/systemd/system/llamafile.service
 
