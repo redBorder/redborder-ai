@@ -1,0 +1,15 @@
+[Unit]
+Description=redborder llamafile service
+Requires=network.target
+After=network.target
+
+[Service]
+ExecStart=/usr/lib/redborder/bin/rb_bootstrap.sh
+Restart=always
+RemainAfterExit=yes
+User=root
+Group=root
+
+
+[Install]
+WantedBy=multi-user.target
