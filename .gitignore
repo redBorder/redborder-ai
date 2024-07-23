@@ -1,3 +1,5 @@
 # SOURCES and pkgs
 SOURCES
 pkgs
+
+resources/model/*
