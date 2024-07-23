@@ -12,4 +12,4 @@ if [ "$#" -eq 0 ]; then
   exit 1
 fi
 
-/usr/lib/redborder/bin/llava-v1.5-7b-q4.llamafile "$@"
+/bin/bash /usr/lib/redborder/bin/llava-v1.5-7b-q4.llamafile "$@"

@@ -29,7 +29,7 @@ install -D -m 0644 resources/systemd/llamafile.service %{buildroot}/usr/lib/syst
 %pre
 
 %post
-firewall-cmd --zone=public --add-port=50505/tcp --permanent
+firewall-cmd --zone=home --add-port=50505/tcp --permanent
 firewall-cmd --reload
 systemctl daemon-reload
 mkdir -p /var/log/redborder-ai
