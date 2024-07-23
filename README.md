@@ -5,7 +5,7 @@ This service is part of the RedBorder Incident Response. Its task is to us an AI
 **Plataforms**  
 * Rocky Linux 9  
 
-## Instalation  
+## Installation  
 
 1. Install the redborder repo following the steps described in [https://repo.redborder.com](https://repo.redborder.com)
 2. yum install redborder-ai
@@ -14,20 +14,22 @@ This service is part of the RedBorder Incident Response. Its task is to us an AI
 
 For specific details use:  
 
+```sh
 /usr/lib/redborder/bin/llava-v1.5-7b-q4.llamafile --help  
+```
 
 The service executes in port 50505.  
 
 ## API Usage  
 
-An OpenAI API compatible chat completions endpoint is provided by the model. It's designed to support the most common OpenAI API use cases. [OpenAI Documentation](https://platform.openai.com/docs/api-reference/chat/create)  
+An OpenAI API compatible chat completions endpoint is provided by the model. It's designed to support the most common OpenAI API use cases. [OpenAI Documentation](https://platform.openai.com/docs/api-reference/chat/create).  
 
 **Example:**  
 
 The following example will generate the title of an incident using the signatures passed.  
 
 ```sh
-curl http://ip:50505/v1/chat/completions \
+curl http://<ip>:50505/v1/chat/completions \
 -H "Content-Type: application/json" \
 -H "Authorization: Bearer no-key" \
 -d '{
