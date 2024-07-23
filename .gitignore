@@ -1,5 +1,6 @@
 # SOURCES and pkgs
 SOURCES
 pkgs
+packaging
 
 resources/model/*
