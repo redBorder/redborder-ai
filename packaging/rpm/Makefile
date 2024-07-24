@@ -15,10 +15,9 @@ SOURCES:
 	mkdir -p SOURCES
 
 archive: SOURCES
-	cp ../../resources/model/* SOURCES/
+	# cp ../../resources/model/* SOURCES/
 	cd ../../ && \
 	git archive --prefix=$(PACKAGE_NAME)-$(VERSION)/ \
-		--add-file resources/model/* \
 		-o packaging/rpm/SOURCES/$(PACKAGE_NAME)-$(VERSION).tar.gz HEAD
 
 

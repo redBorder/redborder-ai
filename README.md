@@ -15,7 +15,7 @@ This service is part of the RedBorder Incident Response. Its task is to us an AI
 For specific details use:  
 
 ```sh
-/usr/lib/redborder/bin/llava-v1.5-7b-q4.llamafile --help  
+rb_ai.sh --help  
 ```
 
 The service executes in port 50505.  
