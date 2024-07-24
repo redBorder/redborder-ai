@@ -1,5 +1,5 @@
 [Unit]
-Description=redborder ai assistant service
+Description=redborder ai service
 Requires=network.target
 After=network.target
 
