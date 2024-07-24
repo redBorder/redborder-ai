@@ -1,4 +1,4 @@
-A# redborder-ai Main package
+# redborder-ai Main package
 
 This service is part of the RedBorder Incident Response. Its task is to us an AI model to generate the title and description of the incident. The model used is [https://github.com/Mozilla-Ocho/llamafile](https://github.com/Mozilla-Ocho/llamafile). It's used from the redborder-webui via API.  
 
