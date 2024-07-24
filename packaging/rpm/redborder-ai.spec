@@ -30,7 +30,7 @@ install -D -m 0644 resources/systemd/llamafile.service %{buildroot}/usr/lib/syst
 %post
 firewall-cmd --zone=home --add-port=50505/tcp --permanent
 firewall-cmd --reload
-curl -L https://huggingface.co/Mozilla/llava-v1.5-7b-llamafile/resolve/main/llava-v1.5-7b-q4.llamafile?download=true -o /usr/lib/redborder/bin
+curl -L https://huggingface.co/Mozilla/llava-v1.5-7b-llamafile/resolve/main/llava-v1.5-7b-q4.llamafile?download=true -o /usr/lib/redborder/bin/llava-v1.5-7b-q4.llamafile
 chmod 0755 /usr/lib/redborder/bin/*
 systemctl daemon-reload
 systemctl enable llamafile.service
