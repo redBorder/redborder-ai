@@ -8,8 +8,8 @@ ExecStart=/usr/lib/redborder/bin/rb_ai.sh --fast --nobrowser --port 50505 --host
 Restart=always
 User=root
 Group=root
-StandardOutput=journal
-StandardError=journal
+StandardOutput=append:/var/log/redborder-ai/redborder_ai.log
+StandardError=append:/var/log/redborder-ai/redborder_ai_error.log
 Environment=PATH=/usr/bin:/usr/local/bin
 
 [Install]
