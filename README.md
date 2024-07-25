@@ -16,9 +16,15 @@ For specific details use:
 
 ```sh
 rb_ai.sh --help  
+```  
+
+Simple usage:  
+
+```sh
+rb_ai.sh -p "your prompt goes here"
 ```
 
-The service executes in port 50505.  
+This model is also executed as a service in port 50505.  
 
 ## API Usage  
 
