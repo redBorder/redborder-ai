@@ -5,6 +5,16 @@
 # Execution:
 #     $ rb_ai.sh --options
 
+# Verify the model exists
+MODEL_PATH=/usr/lib/redborder/bin/llava-v1.5-7b-q4.llamafile
+
+if [ ! -f "$MODEL_PATH" ]; then
+  echo "Error: model not found at $MODEL_PATH"
+  exit 1
+fi
+
+echo "......Model found......"
+
 # Verify if there are params
 if [ "$#" -eq 0 ]; then
   echo "Error: No arguments provided."
@@ -12,4 +22,4 @@ if [ "$#" -eq 0 ]; then
   exit 1
 fi
 
-/bin/bash /usr/lib/redborder/bin/llava-v1.5-7b-q4.llamafile "$@"
+/bin/bash "$MODEL_PATH" "$@"
