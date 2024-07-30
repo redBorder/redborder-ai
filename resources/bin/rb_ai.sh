@@ -6,7 +6,7 @@
 #     $ rb_ai.sh --options
 
 # Verify the model exists
-MODEL_PATH=/usr/lib/redborder/bin/llava-v1.5-7b-q4.llamafile
+MODEL_PATH=/usr/lib/redborder/bin/ai-model
 
 if [ ! -f "$MODEL_PATH" ]; then
   echo "Error: model not found at $MODEL_PATH"
