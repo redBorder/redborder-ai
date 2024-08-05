@@ -24,7 +24,7 @@ Requires: bash
 mkdir -p %{buildroot}/etc/redborder
 mkdir -p %{buildroot}/usr/lib/redborder/bin
 cp resources/bin/* %{buildroot}/usr/lib/redborder/bin
-cp resources/scripts/* %{buildroot}/usr/lib/redborder/scrips
+cp resources/scripts/* %{buildroot}/usr/lib/redborder/scripts
 chmod 0755 %{buildroot}/usr/lib/redborder/bin/*
 install -D -m 0644 resources/systemd/redborder-ai.service %{buildroot}/usr/lib/systemd/system/redborder-ai.service
 
