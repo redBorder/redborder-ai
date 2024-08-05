@@ -23,6 +23,7 @@ Requires: bash
 %install
 mkdir -p %{buildroot}/etc/redborder
 mkdir -p %{buildroot}/usr/lib/redborder/bin
+mkdir -p %{buildroot}/usr/lib/redborder/scripts
 cp resources/bin/* %{buildroot}/usr/lib/redborder/bin
 cp resources/scripts/rb_get_ai_model.rb %{buildroot}/usr/lib/redborder/scripts/rb_get_ai_model.rb
 chmod 0755 %{buildroot}/usr/lib/redborder/bin/*
