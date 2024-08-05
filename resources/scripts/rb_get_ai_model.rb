@@ -1,7 +1,6 @@
 #!/usr/bin/env ruby
 
 require 'rubygems'
-require 'getopt/std'
 require 'chef'
 require 'json'
 
