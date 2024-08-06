@@ -1,28 +1,25 @@
 #!/usr/bin/env ruby
 
 require 'rubygems'
-require 'chef'
 require 'json'
 
-#Configuring Chef parameters
-Chef::Config.from_file("/etc/chef/client.rb")
-Chef::Config[:client_key] = "/etc/chef/client.pem"
-Chef::Config[:http_retry_count] = 5
+if ARGV.length != 1
+  puts "Error: missing model id parameter."
+  puts "Uso: ruby rb_get_ai_model.rb <id-of-model-to-get>"
+  exit 1
+end
 
-def get_ai_selected_model
-  role = Chef::Role.load("manager")
-  role.override_attributes['redborder']['ai_selected_model'] rescue nil
+# Obtener el parámetro
+ai_selected_model = ARGV[0]
+
+if !ai_selected_model
+  printf "AI model selected/download from the redborder-webui not found"
+  exit 1
 end
 
 # Check if file /root/.s3cfg-s3rbmalware exists
 if !File.exist?('/root/.s3cfg_initial')
   printf "Impossible to connect to S3. File /root/.s3cfg-initial not found"
-  exit 1
-end
-
-ai_selected_model = get_ai_selected_model
-if !ai_selected_model
-  printf "AI model selected/download from the redborder-webui not found"
   exit 1
 end
 
