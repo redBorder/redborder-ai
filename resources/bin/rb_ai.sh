@@ -8,10 +8,10 @@
 # Verify the model exists
 MODEL_PATH=/usr/lib/redborder/bin/ai-model
 
-if [ ! -f "$MODEL_PATH" ]; then
-  echo "Error: model not found at $MODEL_PATH"
-  exit 1
-fi
+while [ ! -f "$MODEL_PATH" ]; do
+  echo "Model not found at $MODEL_PATH. Retrying in 30 seconds..."
+  sleep 30
+done
 
 echo "......Model found......"
 
