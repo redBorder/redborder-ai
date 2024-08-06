@@ -24,8 +24,10 @@ Requires: bash
 mkdir -p %{buildroot}/etc/redborder
 mkdir -p %{buildroot}/usr/lib/redborder/bin
 mkdir -p %{buildroot}/usr/lib/redborder/scripts
+mkdir -p %{buildroot}/etc/logrotate.d
 cp resources/bin/* %{buildroot}/usr/lib/redborder/bin
 cp resources/scripts/rb_get_ai_model.rb %{buildroot}/usr/lib/redborder/scripts/rb_get_ai_model.rb
+cp resources/logrotate.d/redborder-ai %{buildroot}/etc/logrotate.d/redborder-ai
 chmod 0755 %{buildroot}/usr/lib/redborder/bin/*
 install -D -m 0644 resources/systemd/redborder-ai.service %{buildroot}/usr/lib/systemd/system/redborder-ai.service
 
@@ -43,6 +45,7 @@ mkdir -p /var/log/redborder-ai
 %defattr(0644,root,root)
 /etc/redborder
 /usr/lib/systemd/system/redborder-ai.service
+/etc/logrotate.d/redborder-ai
 %doc
 
 %changelog
