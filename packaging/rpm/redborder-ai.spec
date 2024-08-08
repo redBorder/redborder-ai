@@ -1,3 +1,5 @@
+%undefine __brp_mangle_shebangs
+
 Name: redborder-ai
 Version: %{__version}
 Release: %{__release}%{?dist}
@@ -21,29 +23,29 @@ Requires: bash
 %install
 mkdir -p %{buildroot}/etc/redborder
 mkdir -p %{buildroot}/usr/lib/redborder/bin
+mkdir -p %{buildroot}/usr/lib/redborder/scripts
+mkdir -p %{buildroot}/etc/logrotate.d
 cp resources/bin/* %{buildroot}/usr/lib/redborder/bin
+cp resources/scripts/rb_get_ai_model.rb %{buildroot}/usr/lib/redborder/scripts/rb_get_ai_model.rb
+cp resources/logrotate.d/redborder-ai %{buildroot}/etc/logrotate.d/redborder-ai
 chmod 0755 %{buildroot}/usr/lib/redborder/bin/*
-install -D -m 0644 resources/systemd/llamafile.service %{buildroot}/usr/lib/systemd/system/llamafile.service
+install -D -m 0644 resources/systemd/redborder-ai.service %{buildroot}/usr/lib/systemd/system/redborder-ai.service
 
 %pre
 
 %post
-firewall-cmd --zone=home --add-port=50505/tcp --permanent
-firewall-cmd --reload
-curl -L https://huggingface.co/Mozilla/llava-v1.5-7b-llamafile/resolve/main/llava-v1.5-7b-q4.llamafile?download=true -o /usr/lib/redborder/bin/llava-v1.5-7b-q4.llamafile
-chmod 0755 /usr/lib/redborder/bin/*
 systemctl daemon-reload
-systemctl enable llamafile.service
-systemctl restart llamafile.service
 mkdir -p /var/log/redborder-ai
 [ -f /usr/lib/redborder/bin/rb_rubywrapper.sh ] && /usr/lib/redborder/bin/rb_rubywrapper.sh -c
 
 %files
 %defattr(0755,root,root)
 /usr/lib/redborder/bin
+/usr/lib/redborder/scripts/rb_get_ai_model.rb
 %defattr(0644,root,root)
 /etc/redborder
-/usr/lib/systemd/system/llamafile.service
+/usr/lib/systemd/system/redborder-ai.service
+/etc/logrotate.d/redborder-ai
 %doc
 
 %changelog

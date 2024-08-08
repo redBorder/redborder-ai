@@ -12,4 +12,14 @@ if [ "$#" -eq 0 ]; then
   exit 1
 fi
 
-/bin/bash /usr/lib/redborder/bin/llava-v1.5-7b-q4.llamafile "$@"
+# Verify the model exists
+MODEL_PATH=/usr/lib/redborder/bin/ai-model
+
+while [ ! -f "$MODEL_PATH" ]; do
+  echo "Model not found at $MODEL_PATH. Retrying in 30 seconds..."
+  sleep 30
+done
+
+echo "......Model found......"
+
+/bin/bash "$MODEL_PATH" "$@"
