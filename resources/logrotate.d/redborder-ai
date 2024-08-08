@@ -1,0 +1,12 @@
+/var/log/redborder-ai/*.log {
+    daily
+    rotate 7
+    compress
+    delaycompress
+    missingok
+    notifempty
+    create 0640 root root
+    postrotate
+        systemctl restart redborder-ai.service > /dev/null 2>&1 || true
+    endscript
+}
