@@ -30,8 +30,7 @@ cp resources/scripts/rb_get_ai_model.rb %{buildroot}/usr/lib/redborder/scripts/r
 cp resources/logrotate.d/redborder-ai %{buildroot}/etc/logrotate.d/redborder-ai
 chmod 0755 %{buildroot}/usr/lib/redborder/bin/*
 install -D -m 0644 resources/systemd/redborder-ai.service %{buildroot}/usr/lib/systemd/system/redborder-ai.service
-
-%pre
+install -D -m 0644 resources/drop_in/override.conf %{buildroot}/etc/systemd/system/redborder-ai.service.d/override.conf%pre
 
 %post
 systemctl daemon-reload
@@ -49,5 +48,7 @@ mkdir -p /var/log/redborder-ai
 %doc
 
 %changelog
+* Thu Sep 5 2024 Pablo Pérez <pperez@redborder.com> - 0.0.2-1
+- added drop-in techniques to edit the number of cores that the service will use
 * Tue Jul 23 2024 Pablo Pérez <pperez@redborder.com> - 0.0.1-1
 - first spec version
