@@ -30,7 +30,9 @@ cp resources/scripts/rb_get_ai_model.rb %{buildroot}/usr/lib/redborder/scripts/r
 cp resources/logrotate.d/redborder-ai %{buildroot}/etc/logrotate.d/redborder-ai
 chmod 0755 %{buildroot}/usr/lib/redborder/bin/*
 install -D -m 0644 resources/systemd/redborder-ai.service %{buildroot}/usr/lib/systemd/system/redborder-ai.service
-install -D -m 0644 resources/drop_in/override.conf %{buildroot}/etc/systemd/system/redborder-ai.service.d/override.conf%pre
+install -D -m 0644 resources/drop_in/override.conf %{buildroot}/etc/systemd/system/redborder-ai.service.d/override.conf
+
+%pre
 
 %post
 systemctl daemon-reload
