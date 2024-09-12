@@ -47,6 +47,7 @@ mkdir -p /var/log/redborder-ai
 /etc/redborder
 /usr/lib/systemd/system/redborder-ai.service
 /etc/logrotate.d/redborder-ai
+/etc/systemd/system/redborder-ai.service.d/override.conf
 %doc
 
 %changelog
