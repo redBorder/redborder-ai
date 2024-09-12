@@ -35,7 +35,7 @@ An OpenAI API compatible chat completions endpoint is provided by the model. It'
 The following example will generate the title of an incident using the signatures passed.  
 
 ```sh
-curl http://<ip>:50505/v1/chat/completions \
+curl http://redborder-ai.service:50505/v1/chat/completions \
 -H "Content-Type: application/json" \
 -H "Authorization: Bearer no-key" \
 -d '{
