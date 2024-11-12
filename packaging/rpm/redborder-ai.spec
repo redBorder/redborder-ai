@@ -10,7 +10,7 @@ License: AGPL 3.0
 URL: https://github.com/redBorder/redborder-ai
 Source0: %{name}-%{version}.tar.gz
 
-Requires: bash firewall-cmd
+Requires: bash
 
 %description
 %{summary}
@@ -30,7 +30,6 @@ cp resources/scripts/rb_get_ai_model.rb %{buildroot}/usr/lib/redborder/scripts/r
 cp resources/logrotate.d/redborder-ai %{buildroot}/etc/logrotate.d/redborder-ai
 chmod 0755 %{buildroot}/usr/lib/redborder/bin/*
 install -D -m 0644 resources/systemd/redborder-ai.service %{buildroot}/usr/lib/systemd/system/redborder-ai.service
-firewall-cmd --zone=home --add-port=50505/tcp --permanent
 
 %pre
 
@@ -38,6 +37,9 @@ firewall-cmd --zone=home --add-port=50505/tcp --permanent
 systemctl daemon-reload
 mkdir -p /var/log/redborder-ai
 [ -f /usr/lib/redborder/bin/rb_rubywrapper.sh ] && /usr/lib/redborder/bin/rb_rubywrapper.sh -c
+if command -v firewall-cmd &> /dev/null; then
+  firewall-cmd --zone=home --add-port=50505/tcp --permanent
+fi
 
 %files
 %defattr(0755,root,root)
