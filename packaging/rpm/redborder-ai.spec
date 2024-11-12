@@ -50,5 +50,7 @@ mkdir -p /var/log/redborder-ai
 %doc
 
 %changelog
+* Tue Nov 12 2024 Pablo Pérez <pperez@redborder.com> - 0.0.2-1
+- open port on installation
 * Tue Jul 23 2024 Pablo Pérez <pperez@redborder.com> - 0.0.1-1
 - first spec version
