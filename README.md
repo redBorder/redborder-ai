@@ -7,7 +7,7 @@ This service is part of the RedBorder Incident Response. Its task is to us an AI
 
 ## Installation  
 
-1. Install the redborder repo following the steps described in [https://repo.redborder.com](https://repo.redborder.com)
+1. Install the redborder repo following the steps described in [https://packages.redborder.com/](https://packages.redborder.com/)
 2. yum install redborder-ai
 
 ## Model Execution  
@@ -47,7 +47,7 @@ curl http://<ip>:50505/v1/chat/completions \
       },
       {
           "role": "user",
-          "content": "I have a program that analyze the network requests. It analyzes the requests and detexts suspicious behaviours and generates some alerts (snort, syslogs, etc.). When a group of rules are detected, a incident is created. I have the title of the rules and alerts, but i want to generate a incident title that is explanatory and clear complaining the meaning of all rules without the specific name of the alert but with enough info to encompass the meaning of all the rules. Im sending you the alert titles and you will generate the title. Important: Send me just the title without any other context or feedback. Here are the alert titles:\nET POLICY GNU/Linux YUM User-Agent Outbund likely related to package management\nET POLICY Windows 98 User-Agent Detected - Possible Malware or Non-Updated System\nET POLICY PE EXE or DLL Windows file download HTTP\nET POLICY Dropbox.com Offsite File Backup in Use\nET CHAT Skype User-Agent detected\nET POLICY possible Xiaomi phone data leakage DNS\nSERVER WEBAPP TP-Ling Archer Router command injection attempt\nsmtp: Attempted command buffer overflow\n"
+          "content": "Explain me this snort rules:\nSERVER WEBAPP TP-Ling Archer Router command injection attempt\nsmtp: Attempted command buffer overflow\n"
       }
     ]
 }'
