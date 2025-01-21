@@ -8,7 +8,10 @@ This service is part of the RedBorder Incident Response system. Its purpose is t
 ## Installation  
 
 1. Install the redborder repo following the steps described in [https://packages.redborder.com/](https://packages.redborder.com/)
-2. yum install redborder-ai
+2. Install redborder-ai
+```sh
+dnf install redborder-ai  
+```  
 
 ## Model Execution  
 
