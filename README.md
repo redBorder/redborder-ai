@@ -11,7 +11,12 @@ This service is part of the RedBorder Incident Response system. Its purpose is t
 2. Install redborder-ai
 ```sh
 dnf install redborder-ai  
-```  
+```
+3. After package installation, enable and start the service
+```sh
+rbcli service enable redborder-ai
+rbcli service start redborder-ai
+```
 
 ## Model Execution  
 
