@@ -26,7 +26,7 @@ mkdir -p %{buildroot}/usr/lib/redborder/bin
 mkdir -p %{buildroot}/usr/lib/redborder/scripts
 mkdir -p %{buildroot}/etc/logrotate.d
 cp resources/bin/* %{buildroot}/usr/lib/redborder/bin
-cp resources/scripts/rb_get_ai_model.rb %{buildroot}/usr/lib/redborder/scripts/rb_get_ai_model.rb
+cp resources/scripts/rb_get_llm_model.rb %{buildroot}/usr/lib/redborder/scripts/rb_get_llm_model.rb
 cp resources/logrotate.d/redborder-llm %{buildroot}/etc/logrotate.d/redborder-llm
 chmod 0755 %{buildroot}/usr/lib/redborder/bin/*
 install -D -m 0644 resources/systemd/redborder-llm.service %{buildroot}/usr/lib/systemd/system/redborder-llm.service
@@ -44,7 +44,7 @@ fi
 %files
 %defattr(0755,root,root)
 /usr/lib/redborder/bin
-/usr/lib/redborder/scripts/rb_get_ai_model.rb
+/usr/lib/redborder/scripts/rb_get_llm_model.rb
 %defattr(0644,root,root)
 /etc/redborder
 /usr/lib/systemd/system/redborder-llm.service

@@ -18,13 +18,13 @@ dnf install redborder-llm
 For specific details use:  
 
 ```sh
-rb_ai.sh --help  
+rb_llm.sh --help  
 ```  
 
 Simple usage:  
 
 ```sh
-rb_ai.sh -p "your prompt goes here"
+rb_llm.sh -p "your prompt goes here"
 ```
 
 This model is also executed as a service in port 50505.  
