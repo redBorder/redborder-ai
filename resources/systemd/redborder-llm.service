@@ -1,5 +1,5 @@
 [Unit]
-Description=redborder ai service
+Description=redborder llm service
 Requires=network.target
 After=network.target
 
@@ -8,8 +8,8 @@ ExecStart=/usr/lib/redborder/bin/rb_ai.sh --server --nobrowser --fast --port 505
 Restart=always
 User=root
 Group=root
-StandardOutput=append:/var/log/redborder-ai/redborder_ai.log
-StandardError=append:/var/log/redborder-ai/redborder_ai_error.log
+StandardOutput=append:/var/log/redborder-llm/redborder_ai.log
+StandardError=append:/var/log/redborder-llm/redborder_ai_error.log
 Environment=PATH=/usr/bin:/usr/local/bin
 AllowedCPUs=0
 
