@@ -37,6 +37,9 @@ install -D -m 0644 resources/systemd/redborder-ai.service %{buildroot}/usr/lib/s
 systemctl daemon-reload
 mkdir -p /var/log/redborder-ai
 [ -f /usr/lib/redborder/bin/rb_rubywrapper.sh ] && /usr/lib/redborder/bin/rb_rubywrapper.sh -c
+if command -v firewall-cmd &> /dev/null; then
+  firewall-cmd --zone=home --add-port=50505/tcp --permanent
+fi
 
 %files
 %defattr(0755,root,root)
@@ -49,5 +52,7 @@ mkdir -p /var/log/redborder-ai
 %doc
 
 %changelog
+* Tue Nov 12 2024 Pablo Pérez <pperez@redborder.com> - 0.0.2-1
+- open port on installation
 * Tue Jul 23 2024 Pablo Pérez <pperez@redborder.com> - 0.0.1-1
 - first spec version
