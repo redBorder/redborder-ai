@@ -13,7 +13,7 @@ if [ "$#" -eq 0 ]; then
 fi
 
 # Verify the model exists
-MODEL_PATH=/usr/lib/redborder/bin/llm-model
+MODEL_PATH=/usr/lib/redborder/bin/ai-model
 
 while [ ! -f "$MODEL_PATH" ]; do
   echo "Model not found at $MODEL_PATH. Retrying in 30 seconds..."

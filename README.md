@@ -1,4 +1,4 @@
-# redborder-llm Main package
+# redborder-ai Main package
 
 This service is part of the RedBorder Incident Response system. Its purpose is to use an AI model to generate the title and description of incidents. The model utilized is [https://github.com/Mozilla-Ocho/llamafile](https://github.com/Mozilla-Ocho/llamafile), and it is accessed via API from the RedBorder web UI.
 
@@ -8,9 +8,9 @@ This service is part of the RedBorder Incident Response system. Its purpose is t
 ## Installation  
 
 1. Install the redborder repo following the steps described in [https://packages.redborder.com/](https://packages.redborder.com/)
-2. Install redborder-llm
+2. Install redborder-ai
 ```sh
-dnf install redborder-llm  
+dnf install redborder-ai  
 ```  
 
 ## Model Execution  
