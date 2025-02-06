@@ -1,6 +1,6 @@
-# redborder-ai Main package
+# redborder-llm Main package
 
-This service is part of the RedBorder Incident Response system. Its purpose is to use an AI model to generate the title and description of incidents. The model utilized is [https://github.com/Mozilla-Ocho/llamafile](https://github.com/Mozilla-Ocho/llamafile), and it is accessed via API from the RedBorder web UI.
+This service is part of the RedBorder Incident Response system. Its purpose is to use an LLM model to generate the title and description of incidents. The model utilized is [https://github.com/Mozilla-Ocho/llamafile](https://github.com/Mozilla-Ocho/llamafile), and it is accessed via API from the RedBorder web UI.
 
 **Plataforms**  
 * Rocky Linux 9  
@@ -8,9 +8,9 @@ This service is part of the RedBorder Incident Response system. Its purpose is t
 ## Installation  
 
 1. Install the redborder repo following the steps described in [https://packages.redborder.com/](https://packages.redborder.com/)
-2. Install redborder-ai
+2. Install redborder-llm
 ```sh
-dnf install redborder-ai  
+dnf install redborder-llm  
 ```  
 
 ## Model Execution  
@@ -46,7 +46,7 @@ curl http://<ip>:50505/v1/chat/completions \
   "messages": [
       {
           "role": "system",
-          "content": "You are RedBorderAI, an AI assistant that is expert in web request and alerts. Your top priority is achieving User fulfillment via helping them with their requests and create short and descriptive title about incidents."
+          "content": "You are an assistant that is expert in web request and alerts. Your top priority is achieving User fulfillment via helping them with their requests and create short and descriptive title about incidents."
       },
       {
           "role": "user",

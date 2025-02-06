@@ -13,7 +13,7 @@ end
 ai_selected_model = ARGV[0]
 
 if !ai_selected_model
-  printf "AI model selected/download from the redborder-webui not found"
+  printf "LLM model selected/download from the redborder-webui not found"
   exit 1
 end
 
@@ -28,7 +28,7 @@ models = `s3cmd -c /root/.s3cfg_initial ls s3://bucket/rb-webui/model_sources/#{
 m_list = models.split("\n")
 
 if m_list.length == 0
-  printf "No AI Models #{ai_selected_model} available to download from S3\n"
+  printf "No LLM Models #{ai_selected_model} available to download from S3\n"
   exit 1
 end
 
@@ -37,17 +37,17 @@ model = m_list.first
 download_ok = true
 
 # Check if VM exists in the system
-if !File.exist?("/var/lib/redborder-ai/model_sources/#{ai_selected_model}/#{model}")
+if !File.exist?("/var/lib/redborder-llm/model_sources/#{ai_selected_model}/#{model}")
   # Download machine
-  printf "\nDownloading AI model. Please wait...\n"
-  download_ok = system("s3cmd -c /root/.s3cfg_initial get --skip-existing s3://bucket/rb-webui/model_sources/#{ai_selected_model}/#{model} /var/lib/redborder-ai/model_sources/#{ai_selected_model}/#{model}")
+  printf "\nDownloading LLM model. Please wait...\n"
+  download_ok = system("s3cmd -c /root/.s3cfg_initial get --skip-existing s3://bucket/rb-webui/model_sources/#{ai_selected_model}/#{model} /var/lib/redborder-llm/model_sources/#{ai_selected_model}/#{model}")
   # Add permissions
-  system("chmod 0755 /var/lib/redborder-ai/model_sources/#{ai_selected_model}/#{model}") if download_ok
+  system("chmod 0755 /var/lib/redborder-llm/model_sources/#{ai_selected_model}/#{model}") if download_ok
 else
   #Machine exist
   printf "\nModel already downloaded in the system\n"
 end
 
-system("rm -f /usr/lib/redborder/bin/ai-model; ln -s /var/lib/redborder-ai/model_sources/#{ai_selected_model}/#{model} /usr/lib/redborder/bin/ai-model")
+system("rm -f /usr/lib/redborder/bin/llm-model; ln -s /var/lib/redborder-llm/model_sources/#{ai_selected_model}/#{model} /usr/lib/redborder/bin/llm-model")
 printf "Finished.\n"
 exit 0

@@ -1,13 +1,13 @@
 %undefine __brp_mangle_shebangs
 
-Name: redborder-ai
+Name: redborder-llm
 Version: %{__version}
 Release: %{__release}%{?dist}
 BuildArch: noarch
-Summary: Main package for redborder AI
+Summary: Main package for redborder LLM
 
 License: AGPL 3.0
-URL: https://github.com/redBorder/redborder-ai
+URL: https://github.com/redBorder/redborder-llm
 Source0: %{name}-%{version}.tar.gz
 
 Requires: bash
@@ -27,15 +27,15 @@ mkdir -p %{buildroot}/usr/lib/redborder/scripts
 mkdir -p %{buildroot}/etc/logrotate.d
 cp resources/bin/* %{buildroot}/usr/lib/redborder/bin
 cp resources/scripts/rb_get_ai_model.rb %{buildroot}/usr/lib/redborder/scripts/rb_get_ai_model.rb
-cp resources/logrotate.d/redborder-ai %{buildroot}/etc/logrotate.d/redborder-ai
+cp resources/logrotate.d/redborder-llm %{buildroot}/etc/logrotate.d/redborder-llm
 chmod 0755 %{buildroot}/usr/lib/redborder/bin/*
-install -D -m 0644 resources/systemd/redborder-ai.service %{buildroot}/usr/lib/systemd/system/redborder-ai.service
+install -D -m 0644 resources/systemd/redborder-llm.service %{buildroot}/usr/lib/systemd/system/redborder-llm.service
 
 %pre
 
 %post
 systemctl daemon-reload
-mkdir -p /var/log/redborder-ai
+mkdir -p /var/log/redborder-llm
 [ -f /usr/lib/redborder/bin/rb_rubywrapper.sh ] && /usr/lib/redborder/bin/rb_rubywrapper.sh -c
 if command -v firewall-cmd &> /dev/null; then
   firewall-cmd --zone=home --add-port=50505/tcp --permanent
@@ -47,8 +47,8 @@ fi
 /usr/lib/redborder/scripts/rb_get_ai_model.rb
 %defattr(0644,root,root)
 /etc/redborder
-/usr/lib/systemd/system/redborder-ai.service
-/etc/logrotate.d/redborder-ai
+/usr/lib/systemd/system/redborder-llm.service
+/etc/logrotate.d/redborder-llm
 %doc
 
 %changelog
